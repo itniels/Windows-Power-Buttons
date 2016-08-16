@@ -1,0 +1,12 @@
+﻿<Window x:Class="WindowsPowerButtons.a.Windows.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowsPowerButtons.a.Windows"
+        mc:Ignorable="d"
+        Title="Windows Power Buttons (By NovaKitty Software)" Height="120.354" Width="382.301" Background="#FF1F1F1F">
+    <Grid>
+
+    </Grid>
+</Window>
