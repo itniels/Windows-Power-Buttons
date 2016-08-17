@@ -72,6 +72,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="a\Assets\Vars.cs" />
+    <Compile Include="a\Logic\Power.cs" />
     <Compile Include="a\Windows\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>

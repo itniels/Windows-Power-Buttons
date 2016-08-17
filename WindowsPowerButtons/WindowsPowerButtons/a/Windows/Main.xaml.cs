@@ -23,5 +23,17 @@ namespace WindowsPowerButtons.a.Windows
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                chb_startWithWin.IsChecked = NovaKittySoftware.Wpf.StartupManager.CurrentUser.IsStartup(a.Assets.Vars.AppName);
+            }
+            catch (Exception)
+            {
+                chb_startWithWin.Foreground = new SolidColorBrush(Colors.Red);
+            }
+        }
     }
 }
