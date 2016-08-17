@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="35*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Wait for:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="White"/>
-            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
             <Label Grid.Row="0" Grid.Column="2" Content="Seconds" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="White"/>
         </Grid>
 
