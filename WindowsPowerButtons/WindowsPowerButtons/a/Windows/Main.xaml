@@ -49,12 +49,12 @@
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="46*"/>
-                <ColumnDefinition Width="66*"/>
-                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="63*"/>
+                <ColumnDefinition Width="97*"/>
+                <ColumnDefinition Width="134*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Wait for:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="White"/>
-            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10,14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label Grid.Row="0" Grid.Column="2" Content="Seconds" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="White"/>
         </Grid>
 
@@ -67,8 +67,8 @@
             </Grid.RowDefinitions>
 
             <CheckBox Name="chb_startWithWin" Grid.Row="0" Content="Start with windows" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center"/>
-            <CheckBox Name="chb_ForcedActions" Grid.Row="1" Content="Force actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center"/>
-            <CheckBox Name="chb_Confirmation" Grid.Row="2" Content="Confirm actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center"/>
+            <CheckBox Name="chb_ForcedActions" Grid.Row="1" Content="Force actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_ForcedActions_Click"/>
+            <CheckBox Name="chb_Confirmation" Grid.Row="2" Content="Confirm actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_Confirmation_Click"/>
             <Label Grid.Row="3" Content="Created by NovaKitty Software" FontSize="11" Foreground="#FF9B9B9B" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,23,0,0"/>
         </Grid>
     </Grid>

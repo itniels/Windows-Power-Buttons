@@ -34,6 +34,31 @@ namespace WindowsPowerButtons.a.Windows
             {
                 chb_startWithWin.Foreground = new SolidColorBrush(Colors.Red);
             }
+            chb_ForcedActions.IsChecked = Properties.Settings.Default.Force;
+            chb_Confirmation.IsChecked = Properties.Settings.Default.Confirmation;
+        }
+
+        private bool ConfirmAction(string text)
+        {
+            if (chb_Confirmation.IsChecked.Value == true)
+            {
+                var result = MessageBox.Show("This will " + text + "\n\nAre you sure?", "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                return result == MessageBoxResult.Yes;
+            }
+
+            return true;
+        }
+
+        private void chb_ForcedActions_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Force = chb_ForcedActions.IsChecked.Value;
+            Properties.Settings.Default.Save();
+        }
+
+        private void chb_Confirmation_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Confirmation = chb_Confirmation.IsChecked.Value;
+            Properties.Settings.Default.Save();
         }
     }
 }
