@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WindowsPowerButtons.a.Windows"
         mc:Ignorable="d"
-        Title="Windows Power Buttons v1.0" Height="160.673" Width="468.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="Windows Power Buttons v1.0" Height="160.673" Width="394.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="147*"/>
-            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="214*"/>
+            <ColumnDefinition Width="163*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.ColumnDefinitions>
@@ -43,9 +43,9 @@
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="63*"/>
-                <ColumnDefinition Width="97*"/>
-                <ColumnDefinition Width="134*"/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width="11*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Wait for:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="White"/>
             <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10,14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="txb_WaitTime_PreviewTextInput"/>
@@ -63,7 +63,7 @@
             <CheckBox Name="chb_startWithWin" Grid.Row="0" Content="Start with windows" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_startWithWin_Click"/>
             <CheckBox Name="chb_ForcedActions" Grid.Row="1" Content="Force actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_ForcedActions_Click"/>
             <CheckBox Name="chb_Confirmation" Grid.Row="2" Content="Confirm actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_Confirmation_Click"/>
-            <Label Grid.Row="3" Content="Created by NovaKitty Software" FontSize="11" Foreground="#FF9B9B9B" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,23,0,0" Cursor="Hand"/>
+            <Label Grid.Row="3" Content="Created by NovaKitty Software" FontSize="11" Foreground="#FF9B9B9B" FontStyle="Italic" HorizontalAlignment="Left" Margin="0,23,0,0" Cursor="Hand"/>
         </Grid>
     </Grid>
 </Window>
