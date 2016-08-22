@@ -102,5 +102,43 @@ namespace WindowsPowerButtons.a.Windows
             Properties.Settings.Default.WaitTime = parseWaitTime();
             Properties.Settings.Default.Save();
         }
+
+        private void btn_Shutdown_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                a.Logic.Power.Shutdown(Properties.Settings.Default.Force, parseWaitTime());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to shutdown!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btn_Restart_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                a.Logic.Power.Restart(Properties.Settings.Default.Force, parseWaitTime());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to reboot!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                a.Logic.Power.Cancel();
+                MessageBox.Show("Pending action has been canceled.", "Cancled", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to cancel!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
