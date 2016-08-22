@@ -8,9 +8,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WindowsPowerButtons")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A simple app for shutdown/restart of windows.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("NovaKitty Software")]
 [assembly: AssemblyProduct("WindowsPowerButtons")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

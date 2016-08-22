@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WindowsPowerButtons.a.Windows"
         mc:Ignorable="d"
-        Title="Windows Power Buttons v1.0" Height="160.673" Width="468.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded">
+        Title="Windows Power Buttons v1.0" Height="160.673" Width="468.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -21,29 +21,23 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="btn_Shutdown" Grid.Column="0" Margin="5" BorderThickness="0" Content="Shutdown">
-                <Button.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#FFF4C8C8" Offset="0"/>
-                        <GradientStop Color="#FFED1818" Offset="1"/>
-                    </RadialGradientBrush>
-                </Button.Background>
+            <Button Name="btn_Shutdown" Grid.Column="0" Margin="5" BorderThickness="0" Background="#FF404040">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="../../Resources/powerOFF.png" Width="40" Height="40"/>
+                    <TextBlock Text="Shutdown" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" />
+                </StackPanel>
             </Button>
-            <Button Name="btn_Restart" Grid.Column="1" Margin="5" BorderThickness="0" Content="Restart">
-                <Button.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#FFF6F9D7" Offset="0"/>
-                        <GradientStop Color="#FFE8F921" Offset="1"/>
-                    </RadialGradientBrush>
-                </Button.Background>
+            <Button Name="btn_Restart" Grid.Column="1" Margin="5" BorderThickness="0" Background="#FF404040">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="../../Resources/Reboot.png" Width="40" Height="40"/>
+                    <TextBlock Text="Restart" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" />
+                </StackPanel>
             </Button>
-            <Button Name="btn_Cancel" Grid.Column="2" Margin="5" Content="Cancel" BorderThickness="0">
-                <Button.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#FFD9F9ED" Offset="0"/>
-                        <GradientStop Color="#FF0EF19C" Offset="1"/>
-                    </RadialGradientBrush>
-                </Button.Background>
+            <Button Name="btn_Cancel" Grid.Column="2" Margin="5" BorderThickness="0" Background="#FF404040">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="../../Resources/powerON.png" Width="40" Height="40"/>
+                    <TextBlock Text="Cancel" VerticalAlignment="Center" TextAlignment="Center" Foreground="White"/>
+                </StackPanel>
             </Button>
         </Grid>
 
@@ -54,7 +48,7 @@
                 <ColumnDefinition Width="134*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Wait for:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="White"/>
-            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10,14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10,14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="txb_WaitTime_PreviewTextInput"/>
             <Label Grid.Row="0" Grid.Column="2" Content="Seconds" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="White"/>
         </Grid>
 
@@ -66,7 +60,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <CheckBox Name="chb_startWithWin" Grid.Row="0" Content="Start with windows" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center"/>
+            <CheckBox Name="chb_startWithWin" Grid.Row="0" Content="Start with windows" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_startWithWin_Click"/>
             <CheckBox Name="chb_ForcedActions" Grid.Row="1" Content="Force actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_ForcedActions_Click"/>
             <CheckBox Name="chb_Confirmation" Grid.Row="2" Content="Confirm actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_Confirmation_Click"/>
             <Label Grid.Row="3" Content="Created by NovaKitty Software" FontSize="11" Foreground="#FF9B9B9B" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,23,0,0"/>

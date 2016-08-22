@@ -114,8 +114,21 @@
   <ItemGroup>
     <Resource Include="app.ico" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\logOFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\powerOFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\powerON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Reboot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Shutdown.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

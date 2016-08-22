@@ -46,5 +46,17 @@ namespace WindowsPowerButtons.Properties {
                 this["Confirmation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int WaitTime {
+            get {
+                return ((int)(this["WaitTime"]));
+            }
+            set {
+                this["WaitTime"] = value;
+            }
+        }
     }
 }
