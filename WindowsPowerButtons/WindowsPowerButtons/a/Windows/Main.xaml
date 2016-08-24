@@ -4,9 +4,61 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WindowsPowerButtons.a.Windows"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="Windows Power Buttons v1.0" Height="160.673" Width="394.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="Windows Power Buttons v1.0" Height="160.673" Width="394.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ContextMenu x:Key="TrayMenu">
+            <MenuItem Click="MenuItem_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../app.ico" Height="16" Width="16"/>
+                        <TextBlock Text="Show" Margin="7,0,0,0"/>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Foreground="#FF6E6E6E" Background="#FFD8D8D8" Height="5" IsEnabled="false"/>
+            <MenuItem Click="btn_Restart_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Resources/Reboot.png" Height="16" Width="16"/>
+                        <TextBlock Text="Restart" Margin="7,0,0,0"/>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Click="btn_Shutdown_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Resources/powerOFF.png" Height="16" Width="16"/>
+                        <TextBlock Text="Shutdown" Margin="7,0,0,0"/>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Click="btn_Cancel_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Resources/powerON.png" Height="16" Width="16"/>
+                        <TextBlock Text="Cancel" Margin="7,0,0,0"/>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Foreground="#FF6E6E6E" Background="#FFD8D8D8" Height="5" IsEnabled="false"/>
+            <MenuItem Click="MenuItem_Click_1">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Resources/exit.ico" Height="16" Width="16"/>
+                        <TextBlock Text="Exit" Margin="7,0,0,0"/>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+        </ContextMenu>
+    </Window.Resources>
+
     <Grid>
+
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
@@ -15,6 +67,14 @@
             <ColumnDefinition Width="214*"/>
             <ColumnDefinition Width="163*"/>
         </Grid.ColumnDefinitions>
+
+        <tb:TaskbarIcon
+            x:Name="NotifyIcon"
+            IconSource="../../app.ico"
+            ToolTipText="Windows Power Buttons"
+            ContextMenu="{StaticResource TrayMenu}">
+        </tb:TaskbarIcon>
+
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

@@ -19,6 +19,7 @@ namespace WindowsPowerButtons.a.Windows
     /// </summary>
     public partial class Main : Window
     {
+        private bool isExit = false;
         public Main()
         {
             InitializeComponent();
@@ -99,8 +100,17 @@ namespace WindowsPowerButtons.a.Windows
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Properties.Settings.Default.WaitTime = parseWaitTime();
-            Properties.Settings.Default.Save();
+            if (isExit)
+            {
+                Properties.Settings.Default.WaitTime = parseWaitTime();
+                Properties.Settings.Default.Save();
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
         }
 
         private void btn_Shutdown_Click(object sender, RoutedEventArgs e)
@@ -139,6 +149,17 @@ namespace WindowsPowerButtons.a.Windows
             {
                 MessageBox.Show("Unable to cancel!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            isExit = true;
+            Application.Current.Shutdown();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Show();
         }
     }
 }
