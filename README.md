@@ -15,5 +15,8 @@ So this just makes it easier.
 - Force shutdown/restart
 - Startup with windows
 
+## Future features
+- Start in windows tray with icon and quick actions dropdown.
+
 ## How much?
 Free forever for anyone. :D
