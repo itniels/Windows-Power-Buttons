@@ -8,16 +8,13 @@ I use it for remote desktop PC's, where you normaly have to use the command prom
 So this just makes it easier.
 
 ## Features
-- [x]Shutdown
-- [x]Restart
-- [x]Cancel a pending shutdown/restart
-- [x]Set a time in seconds before executing.
-- [x]Force shutdown/restart
-- [x]Startup with windows
-- []Start in windows tray with icon and quick actions dropdown.
-
-## Future features
-- Start in windows tray with icon and quick actions dropdown.
+* [x] Shutdown
+- [x] Restart
+- [x] Cancel a pending shutdown/restart
+- [x] Set a time in seconds before executing.
+- [x] Force shutdown/restart
+- [x] Startup with windows
+- [ ] Start in windows tray with icon and quick actions dropdown.
 
 ## How much?
 Free forever for anyone. :D
