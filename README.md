@@ -28,5 +28,5 @@ http://www.iconarchive.com
 https://www.iconfinder.com  
 
 #### Notify Icon
-By Philipp Sumi:
+By Philipp Sumi:  
 http://www.hardcodet.net/wpf-notifyicon
