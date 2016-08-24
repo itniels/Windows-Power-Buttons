@@ -8,12 +8,13 @@ I use it for remote desktop PC's, where you normaly have to use the command prom
 So this just makes it easier.
 
 ## Features
-- Shutdown
-- Restart
-- Cancel a pending shutdown/restart
-- Set a time in seconds before executing.
-- Force shutdown/restart
-- Startup with windows
+- [x]Shutdown
+- [x]Restart
+- [x]Cancel a pending shutdown/restart
+- [x]Set a time in seconds before executing.
+- [x]Force shutdown/restart
+- [x]Startup with windows
+- []Start in windows tray with icon and quick actions dropdown.
 
 ## Future features
 - Start in windows tray with icon and quick actions dropdown.
@@ -22,6 +23,12 @@ So this just makes it easier.
 Free forever for anyone. :D
 
 ## Credits
+#### Icons
+Icons are Commercial free license with no link back.
+Ressource:
+http://www.iconarchive.com/
+https://www.iconfinder.com
+
 #### Notify Icon
 By Philipp Sumi:
 http://www.hardcodet.net/wpf-notifyicon
