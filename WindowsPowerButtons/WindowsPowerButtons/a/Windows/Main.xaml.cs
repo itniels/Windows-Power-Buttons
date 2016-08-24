@@ -38,13 +38,20 @@ namespace WindowsPowerButtons.a.Windows
             chb_ForcedActions.IsChecked = Properties.Settings.Default.Force;
             chb_Confirmation.IsChecked = Properties.Settings.Default.Confirmation;
             txb_WaitTime.Text = Properties.Settings.Default.WaitTime.ToString();
+            chb_StartMinimized.IsChecked = Properties.Settings.Default.StartMinimized;
+
+            // Hide window on startup if chosen.
+            if (Properties.Settings.Default.StartMinimized)
+            {
+                this.Hide();
+            }
         }
 
         private bool ConfirmAction(string text)
         {
             if (chb_Confirmation.IsChecked.Value == true)
             {
-                var result = MessageBox.Show("This will " + text + "\n\nAre you sure?", "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                var result = MessageBox.Show("This will " + text + " the system!\n\nAre you sure?", "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 return result == MessageBoxResult.Yes;
             }
 
@@ -117,7 +124,8 @@ namespace WindowsPowerButtons.a.Windows
         {
             try
             {
-                a.Logic.Power.Shutdown(Properties.Settings.Default.Force, parseWaitTime());
+                if (ConfirmAction("Shutdown"))
+                    a.Logic.Power.Shutdown(Properties.Settings.Default.Force, parseWaitTime());
             }
             catch (Exception)
             {
@@ -129,7 +137,8 @@ namespace WindowsPowerButtons.a.Windows
         {
             try
             {
-                a.Logic.Power.Restart(Properties.Settings.Default.Force, parseWaitTime());
+                if (ConfirmAction("Restart"))
+                    a.Logic.Power.Restart(Properties.Settings.Default.Force, parseWaitTime());
             }
             catch (Exception)
             {
@@ -160,6 +169,18 @@ namespace WindowsPowerButtons.a.Windows
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Show();
+        }
+
+        private void chb_StartMinimized_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.StartMinimized = chb_StartMinimized.IsChecked.Value;
+            Properties.Settings.Default.Save();
+        }
+
+        private void txb_WaitTime_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Properties.Settings.Default.WaitTime = parseWaitTime();
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WindowsPowerButtons.a.Windows"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="Windows Power Buttons v1.0" Height="160.673" Width="394.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Windows Power Buttons v1.0" Height="165.673" Width="394.301" Background="#FF1F1F1F" Icon="/WindowsPowerButtons;component/app.ico" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <Window.Resources>
         <ContextMenu x:Key="TrayMenu">
@@ -108,7 +108,7 @@
                 <ColumnDefinition Width="11*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Wait for:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="White"/>
-            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10,14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="txb_WaitTime_PreviewTextInput"/>
+            <TextBox Name="txb_WaitTime" Grid.Row="0" Grid.Column="1" Margin="10,14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="txb_WaitTime_PreviewTextInput" TextChanged="txb_WaitTime_TextChanged"/>
             <Label Grid.Row="0" Grid.Column="2" Content="Seconds" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="White"/>
         </Grid>
 
@@ -117,13 +117,17 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <CheckBox Name="chb_startWithWin" Grid.Row="0" Content="Start with windows" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_startWithWin_Click"/>
-            <CheckBox Name="chb_ForcedActions" Grid.Row="1" Content="Force actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_ForcedActions_Click"/>
+            <CheckBox Name="chb_StartMinimized" Grid.Row="1" Content="Start minimized" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_StartMinimized_Click"/>
             <CheckBox Name="chb_Confirmation" Grid.Row="2" Content="Confirm actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_Confirmation_Click"/>
-            <Label Grid.Row="3" Content="Created by NovaKitty Software" FontSize="11" Foreground="#FF9B9B9B" FontStyle="Italic" HorizontalAlignment="Left" Margin="0,23,0,0" Cursor="Hand"/>
+            <CheckBox Name="chb_ForcedActions" Grid.Row="3" Content="Force actions" Foreground="White" HorizontalContentAlignment="Left" VerticalAlignment="Center" Click="chb_ForcedActions_Click"/>
+            
+            
+            <Label Grid.Row="4" Content="Created by NovaKitty Software" FontSize="11" Foreground="#FF9B9B9B" FontStyle="Italic" HorizontalAlignment="Left" Cursor="Hand"/>
         </Grid>
     </Grid>
 </Window>
