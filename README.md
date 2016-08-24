@@ -20,3 +20,8 @@ So this just makes it easier.
 
 ## How much?
 Free forever for anyone. :D
+
+## Credits
+#### Notify Icon
+By Philipp Sumi:
+http://www.hardcodet.net/wpf-notifyicon
