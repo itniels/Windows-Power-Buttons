@@ -22,9 +22,10 @@ Free forever for anyone. :D
 ## Credits
 #### Icons
 Icons are Commercial free license with no link back.
-Ressource:
-http://www.iconarchive.com/
-https://www.iconfinder.com
+
+Ressources:  
+http://www.iconarchive.com  
+https://www.iconfinder.com  
 
 #### Notify Icon
 By Philipp Sumi:
