@@ -14,6 +14,7 @@ So this just makes it easier.
 - [x] Set a time in seconds before executing.
 - [x] Force shutdown/restart
 - [x] Startup with windows
+- [ ] Start minimized
 - [ ] Start in windows tray with icon and quick actions dropdown.
 
 ## How much?
