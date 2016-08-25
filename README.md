@@ -15,7 +15,7 @@ So this just makes it easier.
 - [x] Force shutdown/restart
 - [x] Startup with windows
 - [x] windows tray with icon and quick actions dropdown.
-- [ ] Start minimized
+- [x] Start minimized
 
 ## How much?
 Free forever for anyone. :D
