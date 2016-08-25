@@ -20,10 +20,13 @@ namespace WindowsPowerButtons.a.Windows
     public partial class Main : Window
     {
         private bool isExit = false;
+
         public Main()
         {
             InitializeComponent();
         }
+
+        #region Window
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -47,6 +50,25 @@ namespace WindowsPowerButtons.a.Windows
             }
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (isExit)
+            {
+                Properties.Settings.Default.WaitTime = ParseWaitTime();
+                Properties.Settings.Default.Save();
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
+        }
+
+        #endregion
+
+        #region CheckBoxes
+
         private bool ConfirmAction(string text)
         {
             if (chb_Confirmation.IsChecked.Value == true)
@@ -60,19 +82,21 @@ namespace WindowsPowerButtons.a.Windows
 
         private void chb_ForcedActions_Click(object sender, RoutedEventArgs e)
         {
+            if (chb_ForcedActions.IsChecked == null) return;
             Properties.Settings.Default.Force = chb_ForcedActions.IsChecked.Value;
             Properties.Settings.Default.Save();
         }
 
         private void chb_Confirmation_Click(object sender, RoutedEventArgs e)
         {
+            if (chb_Confirmation.IsChecked == null) return;
             Properties.Settings.Default.Confirmation = chb_Confirmation.IsChecked.Value;
             Properties.Settings.Default.Save();
         }
 
         private void chb_startWithWin_Click(object sender, RoutedEventArgs e)
         {
-            if (chb_startWithWin.IsChecked.Value == true)
+            if (chb_startWithWin.IsChecked != null && chb_startWithWin.IsChecked.Value == true)
             {
                 NovaKittySoftware.Wpf.StartupManager.CurrentUser.AddApplicationToStartup("Windows Power Buttons");
             }
@@ -82,7 +106,18 @@ namespace WindowsPowerButtons.a.Windows
             }
         }
 
-        private int parseWaitTime()
+        private void chb_StartMinimized_Click(object sender, RoutedEventArgs e)
+        {
+            if (chb_StartMinimized.IsChecked == null) return;
+            Properties.Settings.Default.StartMinimized = chb_StartMinimized.IsChecked.Value;
+            Properties.Settings.Default.Save();
+        }
+
+        #endregion
+
+        #region Helper Methods
+
+        private int ParseWaitTime()
         {
             try
             {
@@ -95,37 +130,16 @@ namespace WindowsPowerButtons.a.Windows
             }
         }
 
-        private void txb_WaitTime_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            // Prevent from inputting anything other than numbers
-            if (!char.IsDigit(Char.Parse(e.Text)))
-            {
-                e.Handled = true;
-            }
+        #endregion
 
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (isExit)
-            {
-                Properties.Settings.Default.WaitTime = parseWaitTime();
-                Properties.Settings.Default.Save();
-                Application.Current.Shutdown();
-            }
-            else
-            {
-                e.Cancel = true;
-                this.Hide();
-            }
-        }
+        #region Power Buttons
 
         private void btn_Shutdown_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (ConfirmAction("Shutdown"))
-                    a.Logic.Power.Shutdown(Properties.Settings.Default.Force, parseWaitTime());
+                    a.Logic.Power.Shutdown(Properties.Settings.Default.Force, ParseWaitTime());
             }
             catch (Exception)
             {
@@ -138,7 +152,7 @@ namespace WindowsPowerButtons.a.Windows
             try
             {
                 if (ConfirmAction("Restart"))
-                    a.Logic.Power.Restart(Properties.Settings.Default.Force, parseWaitTime());
+                    a.Logic.Power.Restart(Properties.Settings.Default.Force, ParseWaitTime());
             }
             catch (Exception)
             {
@@ -160,6 +174,10 @@ namespace WindowsPowerButtons.a.Windows
             }
         }
 
+        #endregion
+
+        #region NotifyMenu Items
+
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             isExit = true;
@@ -171,16 +189,26 @@ namespace WindowsPowerButtons.a.Windows
             this.Show();
         }
 
-        private void chb_StartMinimized_Click(object sender, RoutedEventArgs e)
-        {
-            Properties.Settings.Default.StartMinimized = chb_StartMinimized.IsChecked.Value;
-            Properties.Settings.Default.Save();
-        }
+        #endregion
+
+        #region Texbox Methods
 
         private void txb_WaitTime_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Properties.Settings.Default.WaitTime = parseWaitTime();
+            Properties.Settings.Default.WaitTime = ParseWaitTime();
             Properties.Settings.Default.Save();
         }
+
+        private void txb_WaitTime_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Prevent from inputting anything other than numbers
+            if (!char.IsDigit(Char.Parse(e.Text)))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        #endregion
     }
 }
