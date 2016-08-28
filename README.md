@@ -24,7 +24,7 @@ Free forever for anyone. :D
 #### Icons
 Icons are Commercial free license with no link back.
 
-Ressources:  
+*Ressources*:  
 http://www.iconarchive.com  
 https://www.iconfinder.com  
 
